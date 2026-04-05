@@ -94,7 +94,7 @@ A RESTful backend API for an event booking and ticketing platform, built as part
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/sng346-backend.git
-cd sng346-backend
+cd event-booking-and-ticketing-system
 ```
 
 ### 2. Install dependencies
