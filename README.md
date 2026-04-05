@@ -249,6 +249,33 @@ All seeded accounts use the password: **`123456`**
 
 ---
 
+## Example API Checks
+
+### Login:
+
+```bash
+curl -X POST http://localhost:3000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"email\":\"alice@example.com\",\"password\":\"123456\"}"
+```
+
+### Get all events:
+
+```bash
+curl http://localhost:3000/api/events
+```
+
+### Create an event as an organiser:
+
+```bash
+curl -X POST http://localhost:3000/api/events \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $YOUR_TOKEN_HERE" \
+  -d "{\"title\":\"Test Event\",\"description\":\"Backend test event\",\"date\":\"2026-05-10T18:00:00.000Z\",\"capacity\":50,\"categoryId\":\"$CATEGORY_ID_HERE\"}"
+```
+
+---
+
 ## Notes
 
 - `node_modules/` is excluded from the repository — run `npm install` to restore dependencies
