@@ -1,6 +1,16 @@
 # Event Booking & Ticketing System — Backend
 
-A RESTful backend API for an event booking and ticketing platform, built as part of the SNG346 Web Application Development course. The system allows organisers to create and manage events, and attendees to discover and book them — with role-based access control enforced on every protected route.
+A RESTful backend API for an event booking and ticketing platform, built as part of the SNG346 Web Application Development course (by Berrak Yıldırım, 2690964). The system allows organisers to create and manage events, and attendees to discover and book them — with role-based access control enforced on every protected route.
+
+---
+
+## ER Diagram & Dependencies
+
+<img width="1240" height="430" alt="Blank diagram" src="https://github.com/user-attachments/assets/58e99743-9104-4ea1-93d7-e00403f9685b" />
+
+---
+
+![WhatsApp Image 2026-04-05 at 16 49 14](https://github.com/user-attachments/assets/a5de1a77-c077-4eaa-9e3f-3f6f11dba85f)
 
 ---
 
@@ -19,24 +29,24 @@ A RESTful backend API for an event booking and ticketing platform, built as part
 ## Features
 
 ### Authentication
-- User registration with hashed passwords
-- Login with JWT token issuance
-- Protected `/me` endpoint to retrieve current user
+- Users can sign up with passwords that are hashed
+- Log in with the issuance of a JWT token
+- Protected the `/me` endpoint to get the current user
 
 ### Role-Based Access Control
 - Two roles: `ORGANISER` and `ATTENDEE`
 - Organisers can create, update, and delete their own events
 - Attendees can browse events and make bookings
-- Every protected route distinguishes between `401 Unauthorized` and `403 Forbidden`
+- Each protected route makes a clear distinction between "401 Unauthorised" and "403 Forbidden."
 
 ### Event Management
 - Full CRUD for events (organisers only)
-- Each event is linked to a category
-- Events include title, description, date, capacity, and organiser info
+- There is a category for each event
+- Information about events includes the title, description, date, capacity, and organiser
 
 ### Booking System
 - Attendees can book available events
-- Duplicate bookings are prevented at both the application and database level
+- Both the application and the database stop duplicate bookings from happening
 - Overbooking is prevented by checking current booking count against event capacity
 
 ### Organiser Dashboard
@@ -93,7 +103,7 @@ A RESTful backend API for an event booking and ticketing platform, built as part
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/sng346-backend.git
+git clone https://github.com/berrakyildirim/event-booking-and-ticketing-system
 cd event-booking-and-ticketing-system
 ```
 
@@ -245,3 +255,6 @@ All seeded accounts use the password: **`123456`**
 - `.env` is excluded — it contains credentials that must not be committed to version control
 - Prisma migrations are tracked in `prisma/migrations/` and should be committed — they represent the full history of schema changes
 - The seed script can be re-run at any time to reset the database to a clean state
+
+Berrak Yıldırım
+2690964
