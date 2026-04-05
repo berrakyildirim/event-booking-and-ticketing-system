@@ -124,7 +124,7 @@ JWT_SECRET="your-secret-key-here"
 
 > Use a long, random string for `JWT_SECRET` in any real deployment.
 
-### 4. Run database migrations
+### 4. Run database migrations (Prisma version must be: Prisma 6)
 
 ```bash
 npx prisma migrate dev
