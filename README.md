@@ -1,4 +1,4 @@
-# Event Booking & Ticketing System — Backend
+# Event Booking & Ticketing System — Backend (Part 1)
 
 A RESTful backend API for an event booking and ticketing platform, built as part of the SNG346 Web Application Development course (by Berrak Yıldırım, 2690964). The system allows organisers to create and manage events, and attendees to discover and book them — with role-based access control enforced on every protected route.
 
