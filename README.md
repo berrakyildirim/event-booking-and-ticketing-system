@@ -118,7 +118,7 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-DATABASE_URL="file:./prisma/dev.db"
+DATABASE_URL="file:./dev.db"
 JWT_SECRET="your-secret-key-here"
 ```
 
