@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Represents a user who can be an organiser or an attendee
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  role         Role     @default(ATTENDEE)
+  passwordHash String
+  createdAt    DateTime @default(now())
+
+  events   Event[]   @relation("OrganizerEvents")
+  bookings Booking[]
+}
+
+// Represents an event created by an organiser, linked to a category
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  date        DateTime
+  capacity    Int
+  createdAt   DateTime @default(now())
+
+  organiserId String
+  organiser   User     @relation("OrganizerEvents", fields: [organiserId], references: [id])
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  bookings Booking[]
+}
+
+// Represents a booking made by an attendee for an event
+model Booking {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  eventId String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  // Prevents the same user from booking the same event twice
+  @@unique([userId, eventId])
+}
+
+// Represents a category that groups events
+model Category {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  events Event[]
+}
+
+enum Role {
+  ORGANISER
+  ATTENDEE
+}
